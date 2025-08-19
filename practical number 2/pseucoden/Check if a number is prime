@@ -1,0 +1,33 @@
+def is_prime(num):
+    """
+    Checks if a given number is prime.
+
+    Args:
+        num: An integer.
+
+    Returns:
+        True if the number is prime, False otherwise.
+    """
+    if num <= 1:
+        return False  # Numbers less than or equal to 1 are not prime
+    if num == 2:
+        return True   # 2 is the only even prime number
+    if num % 2 == 0:
+        return False  # Other even numbers are not prime
+
+    # Check for divisors from 3 up to the square root of num,
+    # incrementing by 2 to skip even numbers.
+    i = 3
+    while i * i <= num:
+        if num % i == 0:
+            return False  # Found a divisor, so it's not prime
+        i += 2
+    return True  # No divisors found, so it's prime
+
+# Example usage:
+number_to_check = int(input("Enter an integer: "))
+
+if is_prime(number_to_check):
+    print(f"{number_to_check} is a prime number.")
+else:
+    print(f"{number_to_check} is not a prime number.")

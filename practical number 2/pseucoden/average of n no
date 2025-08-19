@@ -1,0 +1,30 @@
+def calculate_average_of_n_numbers():
+    """Calculates the average of N numbers provided by the user."""
+    try:
+        n = int(input("Enter the number of elements (N): "))
+        if n <= 0:
+            print("Please enter a positive integer for N.")
+            return
+
+        total_sum = 0
+        print(f"Enter {n} numbers:")
+        for i in range(n):
+            while True:
+                try:
+                    num = float(input(f"Enter number {i + 1}: "))
+                    total_sum += num
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a valid number.")
+
+        if n > 0:
+            average = total_sum / n
+            print(f"The average of the {n} numbers is: {average}")
+        else:
+            print("Cannot calculate average for zero numbers.")
+
+    except ValueError:
+        print("Invalid input for N. Please enter an integer.")
+
+# Call the function to run the program
+calculate_average_of_n_numbers()
